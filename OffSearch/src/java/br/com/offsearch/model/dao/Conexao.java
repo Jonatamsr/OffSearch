@@ -7,6 +7,8 @@ package br.com.offsearch.model.dao;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.spi.PersistenceProvider;
+import org.hibernate.jpa.HibernatePersistenceProvider;
 
 /**
  *
@@ -14,10 +16,17 @@ import javax.persistence.Persistence;
  */
 public class Conexao {
     
-    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("offsearch");
+    
+    //static PersistenceProvider provider = new HibernatePersistenceProvider();
+    //static EntityManagerFactory emf = provider.createEntityManagerFactory("offsearch", getInstance().getProperties());
     
     public static EntityManagerFactory getInstance(){
+//       PersistenceProvider provider = new HibernatePersistenceProvider();
+     EntityManagerFactory emf = Persistence.createEntityManagerFactory("offsearch");
+    
+        
+        
+        
         return emf;
     }
-    
 }

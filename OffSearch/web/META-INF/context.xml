@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/OffSearch"/>
+<Context path="/OffSearch">
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="offsearch" password="1234" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/offsearch?zeroDateTimeBehavior=convertToNull" username="root"/>
+</Context>

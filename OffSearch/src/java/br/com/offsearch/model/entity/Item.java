@@ -30,6 +30,16 @@ public class Item {
     private TipoItem tipoItem;
     @ManyToOne
     private Fabricante fabricante;
+     @ManyToOne
+    private ListaDesejos desejos;
+
+    public ListaDesejos getDesejos() {
+        return desejos;
+    }
+
+    public void setDesejos(ListaDesejos desejos) {
+        this.desejos = desejos;
+    }
 
     public Long getId() {
         return id;

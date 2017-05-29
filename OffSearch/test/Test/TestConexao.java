@@ -6,18 +6,19 @@
 package Test;
 
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.spi.PersistenceProvider;
+import org.hibernate.jpa.HibernatePersistenceProvider;
 
 /**
  *
  * @author Jonatam
  */
 public class TestConexao {
+
+    public void TestConexao() {
+    PersistenceProvider provider = new HibernatePersistenceProvider();
+    EntityManagerFactory emf = provider.createEntityManagerFactory("test", null);
     
-    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
-    
-    public static EntityManagerFactory getInstance(){
-        return emf;
+   
     }
-    
 }

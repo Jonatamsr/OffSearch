@@ -7,8 +7,8 @@ package Test;
  */
 
 
+import br.com.offsearch.model.dao.FactoryDAO;
 import br.com.offsearch.model.dao.InterfaceDAO;
-import br.com.offsearch.model.dao.UsuarioDAO;
 import br.com.offsearch.model.entity.Usuario;
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,8 +27,8 @@ public class TestManterUsuario {
         u.setUsername("Paulo Gomes");
         u.setPassword("123");
                 
-        InterfaceDAO<Usuario> daoUsuario = new UsuarioDAO();
-        daoUsuario.salvar(u);
+        InterfaceDAO<Usuario> usuarioDao = FactoryDAO.createUsuarioDAO();
+		usuarioDao.salvar(u);
         
         Assert.assertEquals(true, u.getId() != null);
        

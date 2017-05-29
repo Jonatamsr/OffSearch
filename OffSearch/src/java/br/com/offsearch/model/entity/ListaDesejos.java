@@ -31,7 +31,7 @@ public class ListaDesejos {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataCriacao;
     
-    @OneToMany
+    @OneToMany(mappedBy = "desejos")
     private List<Item> listaDesejos;
 
     @ManyToOne
