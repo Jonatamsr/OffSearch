@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,9 +26,9 @@ public class Item {
     private Long id;
     private String nome;
     private Long codBarras;
-    @OneToMany
+    @ManyToOne
     private TipoItem tipoItem;
-    @OneToMany
+    @ManyToOne
     private Fabricante fabricante;
 
     public Long getId() {

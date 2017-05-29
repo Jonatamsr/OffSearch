@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.offsearch.model.dao;
+package Test;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -12,9 +12,9 @@ import javax.persistence.Persistence;
  *
  * @author Jonatam
  */
-public class Conexao {
+public class TestConexao {
     
-    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("offsearch");
+    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
     
     public static EntityManagerFactory getInstance(){
         return emf;

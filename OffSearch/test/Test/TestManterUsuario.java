@@ -24,9 +24,9 @@ public class TestManterUsuario {
         
         Usuario u = new Usuario();
         u.setId(null);
-        u.setNome("Paulo Gomes");
+        u.setUsername("Paulo Gomes");
         u.setPassword("123");
-        
+                
         InterfaceDAO<Usuario> daoUsuario = new UsuarioDAO();
         daoUsuario.salvar(u);
         

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="offsearch" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>br.com.offsearch.model.entity.Fabricante</class>
+    <class>br.com.offsearch.model.entity.Item</class>
+    <class>br.com.offsearch.model.entity.ListaDesejos</class>
+    <class>br.com.offsearch.model.entity.TipoItem</class>
+    <class>br.com.offsearch.model.entity.Usuario</class>
+  </persistence-unit>
+    <properties>
+        <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/offsearch" />
+        <property name="javax.persistence.jdbc.user" value="root" />
+        <property name="javax.persistence.jdbc.password" value="1234" />
+
+        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+        <property name="hibernate.show_sql" value="true" />
+        <property name="hibernate.hbm2ddl.auto" value="create" />
+    </properties>
+</persistence>

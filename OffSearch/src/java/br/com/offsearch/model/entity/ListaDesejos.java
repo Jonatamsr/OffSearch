@@ -6,11 +6,13 @@
 package br.com.offsearch.model.entity;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -29,6 +31,9 @@ public class ListaDesejos {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataCriacao;
     
+    @OneToMany
+    private List<Item> listaDesejos;
+
     @ManyToOne
     private Usuario usuario;
 
@@ -56,5 +61,12 @@ public class ListaDesejos {
         this.usuario = usuario;
     }
     
+    public List<Item> getListaDesejos() {
+        return listaDesejos;
+    }
+
+    public void setListaDesejos(List<Item> listaDesejos) {
+        this.listaDesejos = listaDesejos;
+    }
     
 }

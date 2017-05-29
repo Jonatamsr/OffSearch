@@ -7,6 +7,7 @@ package br.com.offsearch.model.dao;
 
 import br.com.offsearch.model.entity.Usuario;
 import java.util.List;
+import javax.persistence.EntityManager;
 
 /**
  *
@@ -16,7 +17,14 @@ public class UsuarioDAO implements InterfaceDAO<Usuario>{
 
     @Override
     public void salvar(Usuario t) {
-        t.setId(1l);
+        EntityManager em = Conexao.
+				getInstance().createEntityManager();
+		
+		em.getTransaction().begin();
+		
+		em.persist(t);
+		
+		em.getTransaction().commit();
     }
 
     @Override
