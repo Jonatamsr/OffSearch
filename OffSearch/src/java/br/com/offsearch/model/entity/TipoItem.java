@@ -26,16 +26,7 @@ public class TipoItem {
     private Long id;
     private String nome;
     private String descricao;
-    @OneToMany (mappedBy = "tipoItem")
-    private Item item;
 
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-    }
 
     public Long getId() {
         return id;

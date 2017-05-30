@@ -20,6 +20,7 @@ public class FabricanteDAO implements InterfaceDAO<Fabricante>{
     EntityManager em = Conexao.getInstance().createEntityManager();
     @Override
     public void salvar(Fabricante t) {
+       
         try {
             em.getTransaction().begin();
             em.persist(t);
@@ -27,24 +28,19 @@ public class FabricanteDAO implements InterfaceDAO<Fabricante>{
         } catch (RuntimeException e) {
             e.printStackTrace();
         } finally {
-            em.flush();
             em.close();
         }
     }
     
 
-    public Fabricante listarPorId (int id){
+    public Fabricante listarPorId (Long id){
         Fabricante f = null;
         try {
             em.getTransaction().begin();
-            String queryString = "from fabricante where id = :id";
-            Query query = em.createQuery(queryString);
-            query.setParameter("id", id);
-            f = (Fabricante) query.getSingleResult();
+            f = em.find(Fabricante.class, id);
         } catch (RuntimeException e) {
             e.printStackTrace();
         } finally {
-            em.flush();
             em.close();
         }
         return f;

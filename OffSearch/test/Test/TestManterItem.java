@@ -27,10 +27,11 @@ public class TestManterItem {
         i.setId(null);
         i.setNome("Camiseta");
         InterfaceDAO<Fabricante> fabr = new FabricanteDAO();
-        i.setFabricante(fabr.listarPorId(1));
+        Fabricante f1 = fabr.listarPorId(1l);
+        i.setFabricante(f1);
         i.setCodBarras(123l);
         InterfaceDAO<TipoItem> tipoI = new TipoItemDAO();
-        i.setTipoItem(tipoI.listarPorId(1));
+        i.setTipoItem(tipoI.listarPorId(1l));
         InterfaceDAO<Item> daoItem = new FactoryDAO().createItemDAO();
                 daoItem.salvar(i);
         Assert.assertEquals(true, i.getId() != null);

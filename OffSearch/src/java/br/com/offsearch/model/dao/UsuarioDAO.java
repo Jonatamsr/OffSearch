@@ -14,17 +14,19 @@ import javax.persistence.EntityManager;
  * @author Jonatam
  */
 public class UsuarioDAO implements InterfaceDAO<Usuario>{
-
+    
+    EntityManager em = Conexao.getInstance().createEntityManager();
     @Override
     public void salvar(Usuario t) {
-        EntityManager em = Conexao.
-				getInstance().createEntityManager();
-		
-		em.getTransaction().begin();
-		
-		em.persist(t);
-		
-		em.getTransaction().commit();
+        try{
+            em.getTransaction().begin();
+        em.persist(t);
+        em.getTransaction().commit();
+        }catch (RuntimeException e){
+            e.printStackTrace();
+        }finally{
+            em.close();
+        }
     }
 
     @Override
@@ -43,7 +45,7 @@ public class UsuarioDAO implements InterfaceDAO<Usuario>{
     }
 
     @Override
-    public Usuario listarPorId(int id) {
+    public Usuario listarPorId(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

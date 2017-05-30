@@ -25,7 +25,6 @@ public class ItemDAO implements InterfaceDAO<Item>{
         } catch (RuntimeException e) {
             e.printStackTrace();
         } finally {
-            em.flush();
             em.close();
         }
     }
@@ -46,7 +45,7 @@ public class ItemDAO implements InterfaceDAO<Item>{
     }
 
     @Override
-    public Item listarPorId(int id) {
+    public Item listarPorId (Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

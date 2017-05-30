@@ -17,8 +17,8 @@ import org.hibernate.jpa.HibernatePersistenceProvider;
 public class Conexao {
     
     
-    static final PersistenceProvider provider = new HibernatePersistenceProvider();
-    static EntityManagerFactory emf = provider.createEntityManagerFactory("offsearch", null);
+//    static final PersistenceProvider provider = new HibernatePersistenceProvider();
+    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("offsearch");
     
     public static EntityManagerFactory getInstance(){
         return emf;

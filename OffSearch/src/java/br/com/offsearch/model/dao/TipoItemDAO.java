@@ -41,18 +41,14 @@ public class TipoItemDAO implements InterfaceDAO<TipoItem>{
     }
 
     @Override
-    public TipoItem listarPorId(int id) {
+    public TipoItem listarPorId(Long id) {
         TipoItem ti = null;
         try {
             em.getTransaction().begin();
-            String queryString = "from fabricante where id = :id";
-            Query query = em.createQuery(queryString);
-            query.setParameter("id", id);
-            ti = (TipoItem) query.getSingleResult();
+            ti = em.find(TipoItem.class, id);
         } catch (RuntimeException e) {
             e.printStackTrace();
         } finally {
-            em.flush();
             em.close();
         }
         return ti;

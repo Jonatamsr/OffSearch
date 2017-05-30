@@ -18,6 +18,6 @@ public interface InterfaceDAO<T> {
 	public void atualizar(T t);
 	public List<T> listar();
 	public void remover(T t);
-        public T listarPorId(int id);
+        public T listarPorId(Long id);
     
 }
