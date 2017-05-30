@@ -7,16 +7,22 @@ package br.com.offsearch.model.dao;
 
 import br.com.offsearch.model.entity.TipoItem;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
  * @author Jonatam
  */
 public class TipoItemDAO implements InterfaceDAO<TipoItem>{
-
+    
+    EntityManager em = Conexao.getInstance().createEntityManager();
+    
     @Override
     public void salvar(TipoItem t) {
-        
+        em.getTransaction().begin();
+        em.persist(t);
+        em.getTransaction().commit();
     }
 
     @Override
@@ -32,6 +38,24 @@ public class TipoItemDAO implements InterfaceDAO<TipoItem>{
     @Override
     public void remover(TipoItem t) {
         
+    }
+
+    @Override
+    public TipoItem listarPorId(int id) {
+        TipoItem ti = null;
+        try {
+            em.getTransaction().begin();
+            String queryString = "from fabricante where id = :id";
+            Query query = em.createQuery(queryString);
+            query.setParameter("id", id);
+            ti = (TipoItem) query.getSingleResult();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        } finally {
+            em.flush();
+            em.close();
+        }
+        return ti;
     }
     
 }

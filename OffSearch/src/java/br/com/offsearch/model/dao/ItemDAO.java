@@ -7,16 +7,27 @@ package br.com.offsearch.model.dao;
 
 import br.com.offsearch.model.entity.Item;
 import java.util.List;
+import javax.persistence.EntityManager;
 
 /**
  *
  * @author Jonatam
  */
 public class ItemDAO implements InterfaceDAO<Item>{
-
+    
+    EntityManager em = Conexao.getInstance().createEntityManager();
     @Override
     public void salvar(Item t) {
-        
+        try {
+            em.getTransaction().begin();
+            em.persist(t);
+            em.getTransaction().commit();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        } finally {
+            em.flush();
+            em.close();
+        }
     }
 
     @Override
@@ -32,6 +43,11 @@ public class ItemDAO implements InterfaceDAO<Item>{
     @Override
     public void remover(Item t) {
 
+    }
+
+    @Override
+    public Item listarPorId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

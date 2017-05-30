@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -25,6 +26,16 @@ public class Fabricante {
     private Long id;
     private String nome;
     private String descricao;
+    @OneToMany (mappedBy = "fabricante")
+    private Item item;
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
 
     public Long getId() {
         return id;

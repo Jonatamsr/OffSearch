@@ -30,7 +30,7 @@ public class Item {
     private TipoItem tipoItem;
     @ManyToOne
     private Fabricante fabricante;
-     @ManyToOne
+    @ManyToOne
     private ListaDesejos desejos;
 
     public ListaDesejos getDesejos() {

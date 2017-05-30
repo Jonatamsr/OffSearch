@@ -21,17 +21,13 @@ public class TestManterUsuario {
     
     @Test
     public void TestManterUsuario(){
-        
         Usuario u = new Usuario();
         u.setId(null);
-        u.setUsername("Paulo Gomes");
+        u.setUsername("Estevao Gutiere");
         u.setPassword("123");
-                
-        InterfaceDAO<Usuario> usuarioDao = FactoryDAO.createUsuarioDAO();
-		usuarioDao.salvar(u);
-        
+        InterfaceDAO<Usuario> daoUsuario = FactoryDAO.createUsuarioDAO();
+		daoUsuario.salvar(u);
         Assert.assertEquals(true, u.getId() != null);
-       
     }
     
 }
