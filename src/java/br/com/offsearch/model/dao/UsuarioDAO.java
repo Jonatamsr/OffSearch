@@ -20,8 +20,8 @@ public class UsuarioDAO implements InterfaceDAO<Usuario>{
     public void salvar(Usuario t) {
         try{
             em.getTransaction().begin();
-        em.persist(t);
-        em.getTransaction().commit();
+            em.persist(t);
+            em.getTransaction().commit();
         }catch (RuntimeException e){
             e.printStackTrace();
         }finally{

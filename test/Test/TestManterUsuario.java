@@ -23,7 +23,7 @@ public class TestManterUsuario {
     public void TestManterUsuario(){
         Usuario u = new Usuario();
         u.setId(null);
-        u.setUsername("Estevao Gutiere");
+        u.setUsername("Estevao Gutierre");
         u.setPassword("123");
         InterfaceDAO<Usuario> daoUsuario = FactoryDAO.createUsuarioDAO();
 		daoUsuario.salvar(u);
